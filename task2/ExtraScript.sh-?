@@ -1,6 +1,7 @@
 #!/bin/bash
 yum update -y
 yum install -y httpd
+OS_VERSION=$(cat /proc/version)
 cd /var/www/html/
 touch index.html
 cat > index.html << EOF
@@ -25,18 +26,9 @@ cat > index.html << EOF
       </style>
    </head>
    <body>
-    <p style="text-align:center">HELLO WORLD</p>
-    <p style="text-align:center">Exadel Intership Task02 Extra</p>
-    <p style="text-align:center">Static hostname: ip-172-31-42-66.us-east-2.compute.internal</p>
-    <p style="text-align:center">Icon name: computer-vm</p>
-    <p style="text-align:center">Chassis: vm</p>
-    <p style="text-align:center">Machine ID: ec2bacbc48a83a68b2929ad60b2841c7</p>
-    <p style="text-align:center">Boot ID: 2c9901eee43d4337b613c9e541536640</p>
-    <p style="text-align:center">Virtualization: xen</p>
-    <p style="text-align:center">Operating System: Amazon Linux 2</p>
-    <p style="text-align:center">CPE OS Name: cpe:2.3:o:amazon:amazon_linux:2</p>
-    <p style="text-align:center">Kernel: Linux 4.14.238-182.422.amzn2.x86_64</p>
-    <p style="text-align:center">Architecture: x86-64 </p>
+      <h1>
+         <p><font color=green> Hello World <br> $OS_VERSION 
+      </h1>
    </body>
 </html>
 systemctl start httpd
